@@ -5,3 +5,25 @@
     text-align: center;
     margin-top: 20px; 
 }
+
+.titulos2 {
+    font-size: medium;
+    color: #e43d00;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    margin-top: 20px; } 
+
+.divProductos {
+    display: flex;
+    flex-direction: row;
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: white;
+    padding: 50px;
+    margin: 25px; }
+
+#imgProductos {
+    width: 300px;
+    height: 300px; }
