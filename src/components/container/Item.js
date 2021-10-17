@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-export const Item = ({nombre, precio, imagen}) => {
+export const Item = ({codigo, nombre, precio, imagen}) => {
     console.log(nombre);
+
     return (
         <div className = "Container">
             <div className="card text-center">
@@ -11,7 +13,9 @@ export const Item = ({nombre, precio, imagen}) => {
                     <p>{precio} ARS</p>                                            
                 </div>
                 <div>
+                    <Link to={`/detalle/${codigo}`}>                
                     <button type="button" className="btn btn btn-dark">Agregar al carrito</button>
+                    </Link>
                 </div>
                 <br /><br />
             </div>  

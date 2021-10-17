@@ -2,34 +2,41 @@ import React from 'react'
 import { CartWidget } from './CartWidget';
 import logo from './logo2.png';
 import './estilosNavBar.css'
+import {Link} from 'react-router-dom';
+
 
 export const NavBar = () => {
     return (
         <div>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand" href="../public/index.html">
+                <Link className="navbar-brand" to="/">
                     <img id="imgLogo" src={logo} alt="logo de Portequeños"/>
-                </a>
+                </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>              
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item active">
-                            <a className="nav-link" href="../public/index.html">Home <span className="sr-only"></span> </a>
+                            <Link to="/" className="nav-link">
+                                Home 
+                            </Link>
                         </li>
                         <li className="nav-item ">
-                            <a className="nav-link" href="../public/index.html">Productos  </a>
+                            <Link to="/productos" className="nav-link">
+                                Productos
+                            </Link>
                         </li>    
                         <li className="nav-item ">
-                            <a className="nav-link" href="../public/index.html">Nosotros </a>
-                        </li>  
-                        <li className="nav-item">
-                            <a className="nav-link" href="../public/index.html">Contacto</a>
+                            <Link to="/nosotros" className="nav-link">
+                                Nosotros 
+                            </Link>
                         </li>  
                     </ul>
                 </div>
-                <CartWidget/>
+                <Link to="/carrito">
+                    <CartWidget/>
+                </Link>
             </nav>
             
         </div>

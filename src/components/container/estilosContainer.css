@@ -24,6 +24,18 @@
     padding: 50px;
     margin: 25px; }
 
+.divLoading {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+    margin: 50px;
+     }
+
+a{
+    text-decoration: none;
+
+}
+
 #imgProductos {
     width: 300px;
     height: 300px; }
