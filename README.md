@@ -7,6 +7,8 @@ Su Visión es ser el restaurante de Tequeños número 1 desde Argentina para el 
 
 Para la creación de ésta página web se hizo uso de tecnologías tales como: javascipt, react, html, hojas de estilos CCS, framework bootstrap
 
+Este repositorio es el resultado de mi primer curso de React como parte de mi formación front end en el desarrollo web 
+
 Especificaciones de las Dependencias utilizadas: 
 
     "@testing-library/jest-dom": "^5.14.1"
