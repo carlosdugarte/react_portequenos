@@ -29,7 +29,7 @@ export const CartProvider = ( {children} ) => {
     }
 
     const isInCart = (itemId) => {
-      return carrito.some( (prod) => prod.id === itemId)
+      return carrito.some( (prod) => prod.codigo === itemId)
     }
   
     const vaciarCarrito = () => {

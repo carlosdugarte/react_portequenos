@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import './estilosCartView.css'
+import { BsFillTrashFill } from 'react-icons/bs'
 
 export const CartView = () => {
 
@@ -30,7 +31,7 @@ export const CartView = () => {
                                         <td>{prod.cantidad}</td> 
                                         <td>                                      
                                          <button className="btn btn-danger" onClick={() => removeItem(prod.codigo)}>
-                                        Eliminar
+                                         <BsFillTrashFill />
                                         </button> 
                                         
                                         {/* <button class="btn btn-info btn-sm" onClick={() => addToCart(prod.codigo)}>
@@ -76,6 +77,15 @@ export const CartView = () => {
                             
                       </tfoot>
                     </table>  
-        </div>
+
+                    {/* <!-- Botón para comprar --> */}
+                    <div id="botonComprar">
+                        <button type="button" class="form-control btn btn btn-dark" data-toggle="modal" data-target="#compraModal">
+                            Comprar
+                        </button> 
+                    </div>       
+
+
+                </div>
     )
 }

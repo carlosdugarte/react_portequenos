@@ -2,11 +2,12 @@ import React, { useContext } from 'react'
 import { useState } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { ItemCount } from '../itemCount/ItemCount';
+import { Link } from 'react-router-dom'
 
 export const ItemDetail = ({codigo, nombre, precio, imagen, descripcion, categoria, stock}) => {
 
     //Traigo la función addToCart del contexto
-    const {addToCart} = useContext(CartContext);
+    const {addToCart, isInCart} = useContext(CartContext);
     
     //Estado de cantidad
     const [cantidad, setCantidad] = useState(0);
@@ -31,9 +32,7 @@ export const ItemDetail = ({codigo, nombre, precio, imagen, descripcion, categor
     return (
                 <div className="divProductos">                            	
                     <div>          
-                        <img id= "imgProductos" src={imagen} alt="teque"/> 
-                        <ItemCount cantidad={cantidad} setCantidad={setCantidad} stock={stock}/>
-
+                        <img id= "imgProductos" src={imagen} alt="teque"/>   
                     </div> 
                         <div>
                         <h1 className="titulos">{nombre}</h1>
@@ -43,9 +42,21 @@ export const ItemDetail = ({codigo, nombre, precio, imagen, descripcion, categor
                             <li>categoria: {categoria}</li> 
                         </ul> 
                     </div>
-                    <button type="submit" className="btn btn btn-dark" onClick={handleAgregar}>
-                        Comprar
-                    </button> 
+
+                    {
+                        isInCart(codigo) 
+                        ?
+                        <Link to="/carrito" className="btn btn-success">Terminar compra</Link>
+                        :
+                        <>
+                        <ItemCount cantidad={cantidad} setCantidad={setCantidad} stock={stock}/>
+                        <button type="submit" className="btn btn btn-dark" onClick={handleAgregar}>
+                            Comprar
+                        </button> 
+                        </>
+
+                    }
+                    
                 </div>
     )
 }
