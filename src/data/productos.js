@@ -5,7 +5,8 @@ export const productos = [
       "descripcion": "combo14",
       "nombre": "Combo de 14 tequeños medianos",
       "precio": 700, 
-      "imagen": "https://i.ibb.co/qNvRV78/teque1.png"      
+      "imagen": "https://i.ibb.co/6BCx9Q5/teque1.png",
+      "stock": 20     
     },
     {
       "codigo": 2,
@@ -13,7 +14,8 @@ export const productos = [
       "descripcion": "combo6",
       "nombre": "Combo de 6 tequeños medianos",
       "precio": 600,
-      "imagen": "https://i.ibb.co/bB7qgBD/teque2.png"
+      "imagen": "https://i.ibb.co/jHhQCBF/teque2.png",
+      "stock": 20
     },
     {
       "codigo": 3,
@@ -21,7 +23,8 @@ export const productos = [
       "descripcion": "combo5",
       "nombre": "Combo de 5 tequeños medianos",
       "precio": 500,
-      "imagen": "https://i.ibb.co/0rWvVNW/teque3.png"
+      "imagen": "https://i.ibb.co/Dt3sP0n/teque3.png",
+      "stock": 20
     },
     {
       "codigo": 4,
@@ -29,7 +32,8 @@ export const productos = [
       "descripcion": "combo4",
       "nombre": "Combo de 4 tequeños mini",
       "precio": 1000,
-      "imagen": "https://i.ibb.co/5WnGhYM/teque4.png"
+      "imagen": "https://i.ibb.co/SvDs8yr/teque4.png",
+      "stock": 20
     },
     {
       "codigo": 5,
@@ -37,7 +41,8 @@ export const productos = [
       "descripcion": "combo5",
       "nombre": "Arepa Reina pepiada",
       "precio": 1000,
-      "imagen": "https://i.ibb.co/B2FZ34t/teque5.jpg"
+      "imagen": "https://i.ibb.co/BKBKJ8B/teque5.jpg",
+      "stock": 20
     },
     {
       "codigo": 6,
@@ -45,7 +50,8 @@ export const productos = [
       "descripcion": "combo6",
       "nombre": "Arepa Pelua",
       "precio": 1000,
-      "imagen": "https://i.ibb.co/5BVDQFQ/teque6.jpg"
+      "imagen": "https://i.ibb.co/4djvLBK/teque6.jpg",
+      "stock": 20
     },
     {
       "codigo": 7,
@@ -53,7 +59,8 @@ export const productos = [
       "descripcion": "combo7",
       "nombre": "Arepa dominó",
       "precio": 1000,
-      "imagen": "https://i.ibb.co/d0dK5z9/teque7.jpg"
+      "imagen": "https://i.ibb.co/HhSz2nk/teque7.jpg",
+      "stock": 20
     },
     {
       "codigo": 8,
@@ -61,6 +68,7 @@ export const productos = [
       "descripcion": "combo8",
       "nombre": "Arepa de pabellón",
       "precio": 1000,
-      "imagen": "https://i.ibb.co/TvmWW8M/teque8.jpg"
+      "imagen": "https://i.ibb.co/rxxbxrh/teque8.jpg",
+      "stock": 20
     }
   ]
