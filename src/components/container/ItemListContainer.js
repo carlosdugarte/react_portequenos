@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { buscarProductos } from '../../functions/buscarProductos'
+import { getFirestore } from '../../firebase/config'
 import './estilosContainer.css'
 import { ItemList } from './ItemList'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,22 +19,24 @@ export const ItemListContainer = (props) => {
 
         setLoading(true);
 
-        buscarProductos()
-            .then((res) => {
-                if(categoriaId){
-                    setItems( res.filter(prod => prod.categoria === categoriaId) )
-                }else{
-                    setItems(res)
-                }
-                console.log("Montado correcto de Productos: "+ res)
+        const db = getFirestore()
+        const productos = categoriaId 
+                            ? db.collection('productos').where('categoria', '==', categoriaId)
+                            : db.collection('productos')
+
+        productos.get()
+            .then((response) => {
+                const newItems = response.docs.map((doc) => {
+                    return {codigo: doc.id, ...doc.data()}
+                })
+                console.log(newItems)
+                setItems(newItems)
             })
-            .catch((err) => {            
-                console.log("Ocurrió un error: "+ err)
-            })            
+            .catch( err => console.log(err))
             .finally(() => {
-                setLoading(false)
-                console.log("Fin del llamado")
-            })
+                setLoading(false)}
+            )
+        
 
     }, [categoriaId])
 

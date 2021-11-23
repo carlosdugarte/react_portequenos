@@ -53,10 +53,10 @@ export const CartView = () => {
                       </tbody>
                       <tfoot class="footerTabla">
                             {
-                                carrito.length === 0 // true - false
+                                carrito.length === 0 
                                 ? <>
                                     <tr id="footer">  
-                                    <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                                    <th scope="row" colSpan="5">Carrito vacío - comience a comprar!</th>
                                     </tr>
                                 </>
                                 : 
@@ -79,12 +79,17 @@ export const CartView = () => {
                     </table>  
 
                     {/* <!-- Botón para comprar --> */}
+                    {
+                    carrito.length !== 0 
+                    ?
                     <div id="botonComprar">
                         <button type="button" class="form-control btn btn btn-dark" data-toggle="modal" data-target="#compraModal">
-                            Comprar
+                            Pagar 
                         </button> 
-                    </div>       
-
+                    </div> 
+                    :
+                    null
+                    }
 
                 </div>
     )

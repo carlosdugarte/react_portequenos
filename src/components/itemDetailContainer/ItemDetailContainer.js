@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { buscarProductos } from '../../functions/buscarProductos'
+import { getFirestore } from '../../firebase/config'
 import { ItemDetail } from './ItemDetail'
 import { Spinner } from 'react-bootstrap'
 
@@ -17,14 +17,19 @@ export const ItemDetailContainer = () => {
     useEffect(()=>{
         setLoading(true);
 
-        buscarProductos()
-            .then( res => {
-                setItem( res.find( prod => prod.codigo === Number(itemId)) )
+        const db = getFirestore()
+        const productos = db.collection('productos')
+        const item = productos.doc(itemId)
+
+        item.get()
+            .then((doc) => {
+                setItem({
+                    codigo: doc.id,
+                    ...doc.data()
+                })
             })
-            .catch((err) => {            
-                console.log("Ocurrió un error: "+ err)
-            }) 
-            .finally(()=> {
+            .catch( err => console.log(err))
+            .finally(() => {
                 setLoading(false)
             })
 
