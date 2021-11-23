@@ -37,4 +37,6 @@ Especificaciones de las Dependencias utilizadas:
     
     "web-vitals": "^1.1.2"
 
+    "firebase": "^8.10.0"
+
 Version Node: 14.6.1
