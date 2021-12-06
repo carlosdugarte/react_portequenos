@@ -1,5 +1,5 @@
 import React from 'react'
-import { TabBar } from '../tabbar/TabBar'
+import { TabBar } from '../TabBar/TabBar'
 import { Item } from './Item'
 
 export const ItemList = ( {productos = []} ) => {

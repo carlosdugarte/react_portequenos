@@ -1,13 +1,13 @@
 import './App.css';
-import { NavBar } from './components/navbar/NavBar';
+import { NavBar } from './components/NavBar/NavBar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { ItemListContainer } from './components/container/ItemListContainer';
+import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
-import { ItemDetailContainer } from './components/itemDetailContainer/ItemDetailContainer';
-import { NosotrosView } from './components/nosotrosView/NosotrosView';
-import { HomeView } from './components/homeView/HomeView';
+import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer';
+import { NosotrosView } from './components/NosotrosView/NosotrosView';
+import { HomeView } from './components/HomeView/HomeView';
 import { CartProvider } from './context/CartContext';
-import { CartView } from './components/cartView/CartView';
+import { CartView } from './components/CartView/CartView';
 
 function App() {
   return (
