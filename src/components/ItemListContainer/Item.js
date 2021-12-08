@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 export const Item = ({codigo, nombre, precio, imagen}) => {
-    console.log(nombre);
+    // console.log(nombre);
 
     return (
         <div className = "Container">

@@ -12,7 +12,7 @@ export const CartProvider = ( {children} ) => {
     
     const addToCart = (item) => {
       setCarrito( [...carrito, item] )
-      //console.log(carrito)      
+   
     }
     
     const removeItem = (itemId) => {

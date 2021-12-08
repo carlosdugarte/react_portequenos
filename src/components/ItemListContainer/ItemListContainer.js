@@ -29,7 +29,7 @@ export const ItemListContainer = (props) => {
                 const newItems = response.docs.map((doc) => {
                     return {codigo: doc.id, ...doc.data()}
                 })
-                console.log(newItems)
+                // console.log(newItems)
                 setItems(newItems)
             })
             .catch( err => console.log(err))

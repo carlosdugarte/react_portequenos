@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export const ItemCount = ( {cantidad, setCantidad, stock} ) => {
 
     const restarItem = () =>{
@@ -14,11 +15,11 @@ export const ItemCount = ( {cantidad, setCantidad, stock} ) => {
 
     return (
         <div>   
-            <button id="botonMenosItem" class="btn btn-danger btn-sm" onClick={restarItem}>
+            <button id="botonMenosItem" className="btn btn-danger btn-sm" onClick={restarItem}>
             -
             </button>                
             <span> {cantidad} </span>
-            <button id="botonMasItem" class="btn btn-info btn-sm" onClick={sumarItem}>
+            <button id="botonMasItem" className="btn btn-info btn-sm" onClick={sumarItem}>
             +
             </button>
         </div>

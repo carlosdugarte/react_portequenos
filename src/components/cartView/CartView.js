@@ -2,80 +2,87 @@ import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import './estilosCartView.css'
 import { BsFillTrashFill } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 export const CartView = () => {
 
     const {carrito, removeItem, calcularCantidad, calcularTotal, vaciarCarrito} = useContext(CartContext)
 
-    console.log(calcularTotal)
-
     return (       
-                <div class="container" >                   
-                    <table class="table table-hover">
-                        <tr>
-                          <th scope="col"></th>
-                          <th scope="col">Item</th>
-                          <th scope="col">Cantidad</th>
-                          <th scope="col">Acción</th>
-                          <th scope="col">Total (Costo+IVA)</th>
-                        </tr>
-                      <tbody id="items" class="bodyTabla">
-                            {  
-                            carrito.map( (prod) => ( 
-                                <>
+                <div className="container" >                   
+                    <table className="table table-hover">
+                        <thead>
+                        {
+                            carrito.length === 0 
+                                ? 
                                     <tr>
-                                        <td>
-                                            <img class="card-img-top" id="imgProductosCarrito" src={prod.imagen}  alt="Combo de 6 Tequeños regulares" />
-                                        </td>         
-                                        <td>{prod.nombre}</td>                            
-                                        <td>{prod.cantidad}</td> 
-                                        <td>                                      
-                                         <button className="btn btn-danger" onClick={() => removeItem(prod.codigo)}>
-                                         <BsFillTrashFill />
-                                        </button> 
-                                        
-                                        {/* <button class="btn btn-info btn-sm" onClick={() => addToCart(prod.codigo)}>
-                                        +
-                                        </button>
-                                        <button class="btn btn-danger btn-sm" onClick={() => removeItem(prod.codigo)}>
-                                        -
-                                        </button>   */}
-                                        </td>
-                                        <td>$ <span>{prod.precio}</span></td>
-                                    </tr>
-                                   
-                                </>
-                            ))  
-                            }
-
-                            
-
-                      </tbody>
-                      <tfoot class="footerTabla">
-                            {
-                                carrito.length === 0 
-                                ? <>
-                                    <tr id="footer">  
-                                    <th scope="row" colSpan="5">Carrito vacío - comience a comprar!</th>
-                                    </tr>
-                                </>
+                                        <th>
+                                            Carrito vacío - comience a comprar!
+                                        </th>
+                                    </tr> 
+                                
                                 : 
-                                <tr>
-                                    <td  colspan="2">Total productos</td>
-                                    <td>{calcularCantidad()}</td>
-                                    <td>
-                                        <button class="btn btn-danger btn-sm" id="vaciarCarrito"  onClick={() => vaciarCarrito()}>
-                                            vaciar todo
-                                        </button>
-                                    </td>
-                                    <td class="font-weight-bold" >$ <span id="totalPrecio">${calcularTotal()}</span></td>
-                                </tr>
+                            <tr>
+                                <th></th>
+                                <th >Item</th>
+                                <th >Cantidad</th>
+                                <th >Acción</th>
+                                <th >Total (Costo+IVA)</th>
+                            </tr>
+                        }    
+                        </thead> 
+                        <tbody id="items" className="bodyTabla">
+                                {  
+                                carrito.map( (prod) => ( 
+                                    <>
+                                        <tr>
+                                            <td>
+                                                <img className="card-img-top" id="imgProductosCarrito" src={prod.imagen}  alt="Combo de 6 Tequeños regulares" />
+                                            </td>         
+                                            <td>{prod.nombre}</td>                            
+                                            <td>{prod.cantidad}</td> 
+                                            <td>                                      
+                                            <button key={prod.codigo} className="btn btn-danger" onClick={() => removeItem(prod.codigo)}>
+                                            <BsFillTrashFill />
+                                            </button> 
+                                            </td>
+                                            <td>$ <span>{prod.precio}</span></td>
+                                        </tr>
+                                    
+                                    </>
+                                ))  
+                                }
 
-                            }    
+                        </tbody>
+                        <tfoot >
+                                {
+                                    carrito.length === 0 
+                                    ? <>
+                                        <tr id="footer">  
+                                            <td  >
+                                                <Link to="/productos" >
+                                                        Ir a Comprar
+                                                </Link>
+                                            </td>                                    
+                                        </tr>
+                                    </>
+                                    : 
+                                    <tr>
+                                        <td  >Total productos</td>
+                                        <td>{calcularCantidad()}</td>
+                                        <td>
+                                            <button className="btn btn-danger btn-sm" id="vaciarCarrito"  onClick={() => vaciarCarrito()}>
+                                                vaciar todo
+                                            </button>
+                                        </td>
+                                        <td className="font-weight-bold" >$ <span id="totalPrecio">${calcularTotal()}</span></td>
+                                    </tr>
+
+                                }    
 
 
-                            
-                      </tfoot>
+                                
+                        </tfoot>
                     </table>  
 
                     {/* <!-- Botón para comprar --> */}
@@ -83,9 +90,9 @@ export const CartView = () => {
                     carrito.length !== 0 
                     ?
                     <div id="botonComprar">
-                        <button type="button" class="form-control btn btn btn-dark" data-toggle="modal" data-target="#compraModal">
-                            Pagar 
-                        </button> 
+                        <Link to="/checkout" className="form-control btn btn btn-dark">
+                            Pagar
+                        </Link>
                     </div> 
                     :
                     null

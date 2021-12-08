@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { getFirestore } from '../../firebase/config'
 import { ItemDetail } from './ItemDetail'
-import { Spinner } from 'react-bootstrap'
+import { Loader } from '../Loader/Loader'
 
 export const ItemDetailContainer = () => {
 
@@ -37,7 +37,7 @@ export const ItemDetailContainer = () => {
         <div>
             {
                 loading 
-                ? <Spinner className="divLoading" animation="border" variant="primary"/>                    
+                ? <Loader/> 
                 : <ItemDetail {...item}/>
             }
         </div>

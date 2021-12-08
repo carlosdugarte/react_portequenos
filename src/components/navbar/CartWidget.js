@@ -7,10 +7,10 @@ export const CartWidget = () => {
 
     const {calcularCantidad} = useContext(CartContext)
 
-    console.log(calcularCantidad)
-
     return (
-        <div>
+        <div style={{
+            visibility: calcularCantidad() === 0 ? "hidden" : "visible"
+        }}>
             <span className="widget" >{calcularCantidad()}</span>
             <img id= "imgCarrito" src={logoCarrito} alt="carrito" />   
         </div>
